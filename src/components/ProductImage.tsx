@@ -1,0 +1,30 @@
+import Image from "next/image";
+
+// Imagem de produto real. As fotos das camisetas têm fundo branco/recortado.
+export default function ProductImage({
+  src,
+  alt,
+  className = "",
+  sizes = "(max-width: 768px) 50vw, 25vw",
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+}) {
+  if (!src) return <div className={`bg-[#f3f3f4] ${className}`} />;
+  return (
+    <div className={`relative overflow-hidden bg-[#f3f3f4] ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+      />
+    </div>
+  );
+}

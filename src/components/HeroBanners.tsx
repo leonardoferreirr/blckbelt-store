@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,10 +15,26 @@ export default function HeroBanners() {
   const n = BANNERS.length;
   const go = (d: number) => setI((p) => (p + d + n) % n);
 
+  // swipe no mobile (estilo carrossel de Instagram)
+  const touchX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(delta) > 40) go(delta < 0 ? 1 : -1); // arrasta pra esquerda = próximo
+    touchX.current = null;
+  };
+
   return (
     <section className="relative mx-auto w-full max-w-[1920px] overflow-hidden bg-ink">
       {/* mobile: proporção nativa do banner ; desktop: altura capada pra não engolir a tela */}
-      <div className="relative aspect-[3571/5000] w-full sm:aspect-auto sm:h-[82vh] sm:max-h-[760px] sm:min-h-[460px]">
+      <div
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        className="relative aspect-[3571/5000] w-full touch-pan-y select-none sm:aspect-auto sm:h-[82vh] sm:max-h-[760px] sm:min-h-[460px]"
+      >
         {BANNERS.map((b, idx) => (
           <Link
             key={idx}
@@ -55,7 +71,7 @@ export default function HeroBanners() {
         <button
           onClick={() => go(-1)}
           aria-label="Banner anterior"
-          className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:left-5 sm:h-12 sm:w-12"
+          className="absolute left-5 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:flex"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
@@ -66,7 +82,7 @@ export default function HeroBanners() {
         <button
           onClick={() => go(1)}
           aria-label="Próximo banner"
-          className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:right-5 sm:h-12 sm:w-12"
+          className="absolute right-5 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:flex"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6" />

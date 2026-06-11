@@ -19,7 +19,7 @@ export type Collection = {
 };
 
 export const COLLECTIONS: Collection[] = [
-  { slug: "new-in", title: "New In", subtitle: "Os últimos drops da BLCK BELT" },
+  { slug: "new-in", title: "Drop atual", subtitle: "Os últimos lançamentos da BLCK BELT" },
   { slug: "camisetas", title: "Camisetas", subtitle: "Oversized pesada, modelagem street" },
 ];
 
@@ -85,6 +85,6 @@ export const relatedTo = (p: Product, n = 4) =>
 
 // menu principal (catálogo enxuto)
 export const NAV_LINKS: { label: string; href: string }[] = [
-  { label: "New In", href: "/colecoes/new-in" },
+  { label: "Drop atual", href: "/colecoes/new-in" },
   { label: "Camisetas", href: "/colecoes/camisetas" },
 ];

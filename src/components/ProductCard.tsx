@@ -17,14 +17,14 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link href={`/produto/${product.slug}`} className="group block">
-      <div className="relative aspect-[3/4] bg-[#f3f3f4]">
+      <div className="relative aspect-[3/4] bg-white">
         {/* imagem principal */}
         <div className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0">
-          <ProductImage src={product.images[0]} alt={product.name} fit="contain" sizes="(max-width: 768px) 50vw, 33vw" className="h-full w-full" />
+          <ProductImage src={product.images[0]} alt={product.name} sizes="(max-width: 768px) 50vw, 33vw" className="h-full w-full" />
         </div>
         {/* segunda foto no hover */}
         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <ProductImage src={hover} alt={`${product.name} — verso`} fit="contain" sizes="(max-width: 768px) 50vw, 33vw" className="h-full w-full" />
+          <ProductImage src={hover} alt={`${product.name} — verso`} sizes="(max-width: 768px) 50vw, 33vw" className="h-full w-full" />
         </div>
         {product.badge && (
           <span

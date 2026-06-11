@@ -45,11 +45,10 @@ export default function ProductDetail({ product }: { product: Product }) {
             </button>
           ))}
         </div>
-        <div className="order-1 aspect-[4/5] flex-1 lg:order-2">
+        <div className="order-1 aspect-[3/4] flex-1 lg:order-2">
           <ProductImage
             src={product.images[activeImg]}
             alt={product.name}
-            fit="contain"
             className="h-full w-full"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority

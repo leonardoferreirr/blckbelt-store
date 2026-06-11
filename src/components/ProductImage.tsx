@@ -19,9 +19,9 @@ export default function ProductImage({
   fit?: "cover" | "contain";
   zoomOnHover?: boolean;
 }) {
-  if (!src) return <div className={`bg-[#f3f3f4] ${className}`} />;
+  if (!src) return <div className={`bg-white ${className}`} />;
   return (
-    <div className={`relative overflow-hidden bg-[#f3f3f4] ${className}`}>
+    <div className={`relative overflow-hidden bg-white ${className}`}>
       <Image
         src={src}
         alt={alt}

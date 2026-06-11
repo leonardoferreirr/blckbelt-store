@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     badge: "new",
     description:
       "Camiseta oversized BLACK BELT em malha pesada. Estampa frontal discreta no peito e arte completa nas costas. Pra quem vive o tatame.",
-    details: ["Malha 100% algodão penteado 240g", "Modelagem oversized", "Gola careca reforçada", "Estampa em silk de alta durabilidade"],
+    details: ["Malha 100% algodão fio penteado 30.1", "Modelagem oversized", "Gola careca reforçada", "Estampa em DTF de alta durabilidade"],
   },
   {
     id: "2",
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     badge: "new",
     description:
       "O lema de quem não para. EAT SLEEP GRAPPLING REPEAT com lettering nas costas em vermelho e branco. Oversized, caimento pesado.",
-    details: ["Malha 100% algodão penteado 240g", "Modelagem oversized", "Estampa grande nas costas", "Toque macio, não craquela"],
+    details: ["Malha 100% algodão fio penteado 30.1", "Modelagem oversized", "Estampa grande nas costas em DTF", "Toque macio, não craquela"],
   },
   {
     id: "3",
@@ -63,7 +63,7 @@ export const PRODUCTS: Product[] = [
     badge: "new",
     description:
       "A versão off white da casa. Camiseta clara com a pegada BLCK BELT, perfeita pra treino e pro dia a dia. Oversized.",
-    details: ["Malha 100% algodão penteado 240g", "Modelagem oversized", "Cor off white", "Estampa frontal + costas"],
+    details: ["Malha 100% algodão fio penteado 30.1", "Modelagem oversized", "Cor off white", "Estampa frontal + costas em DTF"],
   },
 ];
 

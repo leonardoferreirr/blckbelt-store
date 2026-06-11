@@ -38,16 +38,18 @@ export default function ProductDetail({ product }: { product: Product }) {
             <button
               key={i}
               onClick={() => setActiveImg(i)}
-              className={`relative h-24 w-20 shrink-0 border ${activeImg === i ? "border-ink" : "border-line"}`}
+              aria-label={`Ver foto ${i + 1}`}
+              className={`relative h-24 w-20 shrink-0 border transition-colors ${activeImg === i ? "border-ink" : "border-line hover:border-muted"}`}
             >
-              <ProductImage src={src} alt={`${product.name} ${i + 1}`} className="h-full w-full" sizes="80px" />
+              <ProductImage src={src} alt={`${product.name} ${i + 1}`} fit="contain" className="h-full w-full" sizes="80px" />
             </button>
           ))}
         </div>
-        <div className="order-1 aspect-[3/4] flex-1 lg:order-2">
+        <div className="order-1 aspect-[4/5] flex-1 lg:order-2">
           <ProductImage
             src={product.images[activeImg]}
             alt={product.name}
+            fit="contain"
             className="h-full w-full"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority

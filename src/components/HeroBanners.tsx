@@ -20,10 +20,10 @@ export default function HeroBanners() {
   }, [n]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-ink">
-      {/* desktop: landscape 16:9 ; mobile: portrait */}
+    <section className="relative mx-auto w-full max-w-[1920px] overflow-hidden bg-ink">
+      {/* mobile: proporção nativa 3571x5000 ; desktop: 1920x1080 (capado no tamanho da foto) */}
       <Link href="/colecoes/new-in" className="block" aria-label="Ver coleção">
-        <div className="relative aspect-[3/4] w-full sm:aspect-[16/9]">
+        <div className="relative aspect-[3571/5000] w-full sm:aspect-[1920/1080]">
           {BANNERS.map((b, idx) => (
             <div
               key={idx}

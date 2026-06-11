@@ -19,9 +19,9 @@ export default function ProductCard({ product }: { product: Product }) {
     <Link href={`/produto/${product.slug}`} className="group block">
       <div className="relative aspect-[3/4] bg-[#f3f3f4]">
         {/* imagem principal */}
-        <ProductImage src={product.images[0]} alt={product.name} className="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0" />
+        <ProductImage src={product.images[0]} alt={product.name} sizes="(max-width: 768px) 50vw, 33vw" className="absolute inset-0 h-full w-full transition-opacity duration-300 group-hover:opacity-0" />
         {/* segunda foto no hover */}
-        <ProductImage src={hover} alt={`${product.name} — verso`} className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <ProductImage src={hover} alt={`${product.name} — verso`} sizes="(max-width: 768px) 50vw, 33vw" className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         {product.badge && (
           <span
             className={`absolute left-3 top-3 z-10 px-2 py-1 text-[10px] font-semibold tracking-widest ${

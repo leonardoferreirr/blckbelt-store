@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,11 +13,7 @@ const BANNERS = [
 export default function HeroBanners() {
   const [i, setI] = useState(0);
   const n = BANNERS.length;
-
-  useEffect(() => {
-    const t = setInterval(() => setI((p) => (p + 1) % n), 5000);
-    return () => clearInterval(t);
-  }, [n]);
+  const go = (d: number) => setI((p) => (p + d + n) % n);
 
   return (
     <section className="relative mx-auto w-full max-w-[1920px] overflow-hidden bg-ink">
@@ -29,7 +25,7 @@ export default function HeroBanners() {
             href={b.href}
             aria-label={`Banner ${idx + 1}`}
             tabIndex={idx === i ? 0 : -1}
-            className={`absolute inset-0 transition-opacity duration-700 ${
+            className={`absolute inset-0 transition-opacity duration-500 ${
               idx === i ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
             aria-hidden={idx !== i}
@@ -54,18 +50,40 @@ export default function HeroBanners() {
             />
           </Link>
         ))}
-      </div>
 
-      {/* dots */}
-      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-        {BANNERS.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setI(idx)}
-            aria-label={`Ir para banner ${idx + 1}`}
-            className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-paper" : "w-1.5 bg-paper/50 hover:bg-paper/80"}`}
-          />
-        ))}
+        {/* seta esquerda */}
+        <button
+          onClick={() => go(-1)}
+          aria-label="Banner anterior"
+          className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:left-5 sm:h-12 sm:w-12"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        {/* seta direita */}
+        <button
+          onClick={() => go(1)}
+          aria-label="Próximo banner"
+          className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-paper backdrop-blur-sm transition-colors hover:bg-ink/70 sm:right-5 sm:h-12 sm:w-12"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+
+        {/* dots indicadores */}
+        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          {BANNERS.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setI(idx)}
+              aria-label={`Ir para banner ${idx + 1}`}
+              className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-paper" : "w-1.5 bg-paper/50 hover:bg-paper/80"}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

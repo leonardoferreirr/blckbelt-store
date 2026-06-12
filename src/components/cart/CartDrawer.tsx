@@ -5,7 +5,9 @@ import { useCart } from "./CartContext";
 import { formatPrice } from "@/lib/products";
 import ProductImage from "@/components/ProductImage";
 
-const FREE_SHIPPING = 39900;
+import { BRAND } from "@/lib/brand";
+
+const FREE_SHIPPING = BRAND.freeShippingFrom;
 
 export default function CartDrawer() {
   const { items, isOpen, close, remove, setQty, subtotal, count } = useCart();

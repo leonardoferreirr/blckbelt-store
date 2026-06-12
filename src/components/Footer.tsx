@@ -37,14 +37,14 @@ export default function Footer() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-paper/50">Newsletter</p>
             <p className="mt-3 text-sm text-paper/70">Entre na lista e receba os próximos drops em primeira mão.</p>
-            <form className="mt-3 flex border border-paper/20">
+            <div className="mt-3 flex border border-paper/20">
               <input
                 type="email"
                 placeholder="seu@email.com"
                 className="w-full bg-transparent px-3 py-2 text-sm outline-none placeholder:text-paper/40"
               />
-              <button className="bg-accent px-4 text-sm font-semibold uppercase">OK</button>
-            </form>
+              <button type="button" className="bg-accent px-4 text-sm font-semibold uppercase">OK</button>
+            </div>
           </div>
         </div>
 

@@ -21,8 +21,31 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blckbelt.com.br"),
   title: `${BRAND.name} · ${BRAND.tagline}`,
   description: `${BRAND.name} — ${BRAND.tagline}. Peças em tiragem limitada.`,
+  openGraph: {
+    title: `${BRAND.name} · ${BRAND.tagline}`,
+    description: `${BRAND.name} — ${BRAND.tagline}. Peças em tiragem limitada.`,
+    url: "https://blckbelt.com.br",
+    siteName: BRAND.name,
+    images: [
+      {
+        url: "/banners/banner-1-desktop.webp",
+        width: 1920,
+        height: 1080,
+        alt: `${BRAND.name} — ${BRAND.tagline}`,
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BRAND.name} · ${BRAND.tagline}`,
+    description: `${BRAND.name} — ${BRAND.tagline}. Peças em tiragem limitada.`,
+    images: ["/banners/banner-1-desktop.webp"],
+  },
 };
 
 export default function RootLayout({

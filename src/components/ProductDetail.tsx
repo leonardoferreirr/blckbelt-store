@@ -98,7 +98,7 @@ export default function ProductDetail({ product }: { product: Product }) {
           Adicionar à sacola
         </button>
         <div className="mt-3 grid grid-cols-2 gap-3 text-center text-[11px] uppercase tracking-widest text-muted">
-          <div className="border border-line py-2">Frete grátis +R$299</div>
+          <div className="border border-line py-2">Frete grátis +R$350</div>
           <div className="border border-line py-2">Troca grátis 30 dias</div>
         </div>
 
